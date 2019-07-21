@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>cxfun12.github.io</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="cxfun12.github.io" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/content.html" />
+<meta property="og:url" content="http://localhost:4000/content.html" />
+<meta property="og:site_name" content="cxfun12.github.io" />
+<script type="application/ld+json">
+{"@type":"WebPage","url":"http://localhost:4000/content.html","headline":"cxfun12.github.io","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=c7eef35b2131f236529c44516274c78b42499a55">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">cxfun12.github.io</a></h1>
+      
+
+      <p>#Jekyll安装配置及其相关问题</p>
+
+<p>[TOC]</p>
+
+<h2 id="安装流程"><strong>安装流程</strong></h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem install bundler jekyll
+<span class="nv">$ </span>jekyll new my-awesome-site
+<span class="nv">$ </span><span class="nb">cd </span>my-awesome-site
+<span class="nv">$ </span>bundle <span class="nb">exec </span>jekyll serve
+</code></pre></div></div>
+
+<h2 id="使用步骤">使用步骤</h2>
+
+<h3 id="setting-up-your-github-pages-site-locally-with-jekylll"><a href="https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll">Setting up your GitHub Pages site locally with Jekylll</a></h3>
+
+<p><a href="https://pages.github.com/">Websites for you and your projects</a></p>
+
+<h2 id="相关问题"><strong>相关问题</strong></h2>
+
+<p>###Q1 无法找到 jekll 或 bundle</p>
+
+<p>1）确认jekll或者bundle是否安装成功</p>
+
+<pre><code class="language-she">$ irb
+&gt;&gt;&gt;  require "jekyll"
+# =&gt; true   
+
+</code></pre>
+
+<p>如果返回true才是安装成功，bundle也是类似操作检查是否已经安装。</p>
+
+<p>如果没有安装成功，重新返回到安装步骤。</p>
+
+<p>2）确认安装成功后，在bash_profile的PATH中加入jekll的bin目录， 通过如下命令查找bin目录</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gem which jekyll
+/Users/xxxx/.gem/ruby/2.3.0/gems/bundler-2.0.2/lib/bundler.rb 
+<span class="c">#根据如上路径确认gem及ruby所在路径</span>
+<span class="nv">$ </span><span class="nb">ls</span> /Users/xxxx/.gem/ruby/2.3.0/bin
+
+</code></pre></div></div>
+
+<p>3）把路径添加到profile中，在~/.bash_profile或类似profile文件中加入如下环境变量设置，并重新刷新profile</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GEM 环境变量设置</span>
+<span class="nb">export </span><span class="nv">GEMPATH</span><span class="o">=</span>/Users/xxxx/.gem/ruby/2.3.0
+<span class="nb">export </span><span class="nv">GEMBIN</span><span class="o">=</span><span class="nv">$GEMPATH</span>/bin
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$GEMBIN</span>
+<span class="c"># 刷新profile</span>
+<span class="nb">source</span> ~/.bash_profile
+</code></pre></div></div>
+
+<p>然后就可以在命令行直接调用jekyll或者bundle了</p>
+
+<p>###Q2 执行bundle exec jekyll serve</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>jekyll serve
+Could not find gem <span class="s1">'github-pages'</span> <span class="k">in </span>any of the gem sources listed <span class="k">in </span>your Gemfile.
+</code></pre></div></div>
+
+<p>修改site路径下的Gemfile文件，添加相关的依赖，然后执行</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$bundle</span> install
+</code></pre></div></div>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>
